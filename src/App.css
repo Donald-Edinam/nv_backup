@@ -1,0 +1,16 @@
+#root {
+    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    width: 100vw;
+    overflow-x: hidden;
+    scroll-behavior: smooth !important; 
+}
+
+img{
+    width: 100%;
+}
+
+.h-mod{
+    height: calc(100vh - 80px);
+    background: url("https://picsum.photos/1920/1080?random");
+}
