@@ -2,16 +2,18 @@ import React from 'react'
 import { BrowserRouter, Route, Routes, } from 'react-router-dom'
 import HomePage from '../pages/HomePage'
 import ProductDetails from '../pages/ProductDetails'
+import CartContainer from '../pages/CartContainer'
 
-const Navigation = ({ products }) => {
+const Navigation = ({ products, onAddToCart }) => {
   return (
     <>
-        <BrowserRouter>
+      <BrowserRouter>
         <Routes>
-            <Route path='/' element={<HomePage products={products}/>} />
-            <Route path='/product/:id' element={<ProductDetails products={products}/>} />
+          <Route path='/' element={<HomePage products={products} onAddToCart={onAddToCart} />} />
+          <Route path='/product/:id' element={<ProductDetails products={products} onAddToCart={onAddToCart} />} />
+          <Route path='/cart' element={<CartContainer />} />
         </Routes>
-        </BrowserRouter>
+      </BrowserRouter>
     </>
   )
 }

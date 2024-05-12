@@ -4,12 +4,12 @@ import HeroSection from '../components/homepage/HeroSection'
 import MainProducts from '../components/homepage/MainProducts'
 import ProductSwiper from '../components/homepage/ProductSwiper'
 
-const HomePage = ({ products }) => {
+const HomePage = ({ products, onAddToCart }) => {
   return (
     <div>
       <NavBar />
       <HeroSection />
-      <MainProducts products={products}/>
+      <MainProducts products={products} onAddToCart={onAddToCart}/>
       <ProductSwiper products={products}/>
     </div>
   )

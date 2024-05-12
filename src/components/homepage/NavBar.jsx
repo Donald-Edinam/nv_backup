@@ -20,7 +20,7 @@ const NavBar = () => {
               <a class="nav-link active" aria-current="page" href="#">Shop</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex jusitfy-content-between" href="#">
+              <a class="nav-link d-flex jusitfy-content-between" href="/cart">
                 <p>Cart</p>
                 <sup>2</sup>
               </a>

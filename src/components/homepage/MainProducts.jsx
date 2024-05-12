@@ -2,7 +2,7 @@ import React from 'react'
 import ShoppingCartIcon from '@heroicons/react/24/solid/ShoppingCartIcon';
 import { Link } from 'react-router-dom';
 
-const MainProducts = ({ products }) => {
+const MainProducts = ({ products, onAddToCart }) => {
 
      const sliceProducts = products.slice(0, 4)
 
@@ -23,7 +23,7 @@ const MainProducts = ({ products }) => {
                                     </div>
                                 </Link>
                                     <div className="card-footer d-flex justify-content-between align-items-center my-2 container w-100" >
-                                        <button className="btn btn-secondary">Add to Cart</button>
+                                        <button className="btn btn-secondary" onClick={() => onAddToCart(product.id, 1)}>Add to Cart</button>
                                         <p className='my-2 font-bold'>{product.price.formatted_with_symbol}</p>
                                     </div>
                                 </div>
