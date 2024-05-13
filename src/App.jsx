@@ -12,6 +12,7 @@ const App = () => {
 
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const fetchProducts = async () => {
     const {data} = await commerce.products.list(); 
@@ -21,6 +22,7 @@ const App = () => {
   // Fetch cart
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
+    setLoading(false);
   }
 
       // Add to cart functionality
@@ -35,11 +37,17 @@ const App = () => {
   },[])
 
   console.log(" Cart Info", cart)
- 
-  return (
-    <div>
+
+    const MainContent = () => {
+      <div>
       <Navigation products={products} onAddToCart={handleAddToCart}/>
     </div>
+   }
+ 
+  return (
+    {
+     loading ? <h1>NovaBuzzer</h1> : <MainContent />
+   }
   )
 }
 
