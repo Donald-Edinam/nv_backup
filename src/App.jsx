@@ -44,7 +44,9 @@ const App = () => {
       <Navigation products={products} onAddToCart={handleAddToCart}/>
     </div>
      )
-   }
+   };
+
+
     return (
   loading ? <h1>NovaBuzzer</h1> : <MainContent />
 );
