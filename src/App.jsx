@@ -39,9 +39,11 @@ const App = () => {
   console.log(" Cart Info", cart)
 
     const MainContent = () => {
-      <div>
+      return (
+       <div>
       <Navigation products={products} onAddToCart={handleAddToCart}/>
     </div>
+     )
    }
  
   return (
