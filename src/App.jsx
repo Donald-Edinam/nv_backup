@@ -45,12 +45,9 @@ const App = () => {
     </div>
      )
    }
- 
-  return (
     return (
   loading ? <h1>NovaBuzzer</h1> : <MainContent />
 );
-  )
 }
 
 export default App
