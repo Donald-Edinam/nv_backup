@@ -47,9 +47,9 @@ const App = () => {
    }
  
   return (
-    {
-     loading ? <h1>NovaBuzzer</h1> : <MainContent />
-   }
+    return (
+  loading ? <h1>NovaBuzzer</h1> : <MainContent />
+);
   )
 }
 
