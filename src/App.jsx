@@ -15,7 +15,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   const fetchProducts = async () => {
-    const {data} = await commerce.products.list(); 
+    const { data } = await commerce.products.list();
     setProducts(data)
   }
 
@@ -25,31 +25,57 @@ const App = () => {
     setLoading(false);
   }
 
-      // Add to cart functionality
-      const handleAddToCart = async (productId, quantity) => {
-        const item = await commerce.cart.add(productId, quantity);
-        setCart(item.cart);
-    }
+  // Add to cart functionality
+  const handleAddToCart = async (productId, quantity) => {
+    const item = await commerce.cart.add(productId, quantity);
+    setCart(item.cart);
+  }
+
+  // Update Cart Quantity
+  const handleUpdateCartQty = async (productId, quantity) => {
+      const response = await commerce.cart.update(productId, {  quantity });
+      setCart(response.cart)
+  }
+
+  // Remove from cart
+  const handleRemoveFromCart = async (productId) => {
+    const respnse = await commerce.cart.remove(productId);
+    setCart(respnse.cart)
+
+  }
+
+  const handleEmptyCart = async () => {
+    const response = await commerce.cart.empty();
+    setCart(response.cart)
+  }
 
   useEffect(() => {
     fetchProducts();
     fetchCart();
-  },[])
+  }, [])
 
   console.log(" Cart Info", cart)
 
-    const MainContent = () => {
-      return (
-       <div>
-      <Navigation products={products} onAddToCart={handleAddToCart}/>
-    </div>
-     )
-   };
-
-
+  const MainContent = () => {
     return (
-  loading ? <h1>NovaBuzzer</h1> : <MainContent />
-);
+      <div>
+        <Navigation products={products} onAddToCart={handleAddToCart} cart={cart} />
+      </div>
+    )
+  };
+
+  const LoadingContainer = () => {
+    return (
+      <div className="mx-auto">
+        <h1 className='text-center m-5 p-5 g-5'>NovaBuzzer</h1>
+      </div>
+    )
+  }
+
+
+  return (
+    loading ? <LoadingContainer /> : <MainContent />
+  );
 }
 
 export default App
