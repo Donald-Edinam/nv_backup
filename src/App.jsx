@@ -33,8 +33,8 @@ const App = () => {
 
   // Update Cart Quantity
   const handleUpdateCartQty = async (productId, quantity) => {
-      const response = await commerce.cart.update(productId, {  quantity });
-      setCart(response.cart)
+    const response = await commerce.cart.update(productId, { quantity });
+    setCart(response.cart)
   }
 
   // Remove from cart
@@ -59,7 +59,15 @@ const App = () => {
   const MainContent = () => {
     return (
       <div>
-        <Navigation products={products} onAddToCart={handleAddToCart} cart={cart} />
+        <Navigation
+          products={products}
+          onAddToCart={handleAddToCart}
+          cart={cart}
+          handleAddToCart={handleAddToCart}
+          handleEmptyCart={handleEmptyCart}
+          handleRemoveFromCart={handleRemoveFromCart}
+          handleUpdateCartQty={handleUpdateCartQty}
+        />
       </div>
     )
   };
